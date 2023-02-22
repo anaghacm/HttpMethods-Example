@@ -1,0 +1,40 @@
+@import '../../../assets/scss/variables';
+@import '../../../assets/scss/mixins';
+
+.accordion-base{
+    min-height: 630px;
+    height: 100%;
+
+    .accordion{
+        width: 100%;
+    }
+    .accordion-item{
+        border:none;
+    }
+    .accordion-button{
+        background-color: $color-primary;
+        color: $color-contrasting;
+        border-radius: 0;
+
+        &:focus{
+            box-shadow: none;
+        }
+    }
+    .accordion-body{
+        padding: $spacer-2;
+    }
+    .explanation{
+        font-size: $font-xsm;
+        font-weight: 200;
+        padding-left: $spacer-1;
+        font-style: italic;
+    }
+}
+
+@include mobile{
+    .accordion-base{
+        .explanation{
+            display: none;
+        }
+    }
+}

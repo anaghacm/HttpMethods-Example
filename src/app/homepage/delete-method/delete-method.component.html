@@ -1,0 +1,18 @@
+<section class="delete-module">
+    <!-- <div class="row"> -->
+        <div class="request-div">
+            <form class="delete-form" (ngSubmit)="deleteData()">
+                <div class="input-div">
+                    <input type="number" class="form-control" name="id" [(ngModel)]="id" placeholder="Enter id">
+                </div>
+                
+                <div class="input-div btn-div">
+                    <button type="submit" class="btn btn-method">Delete Data</button>
+                </div>
+            </form>
+        </div>
+        <div class="response-div">
+            <p class="res-head">Response</p>
+            <p class="res-body">{{status}}</p>
+        </div>
+</section>

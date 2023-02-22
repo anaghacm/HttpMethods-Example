@@ -1,0 +1,46 @@
+@import '../../../assets/scss/variables';
+@import '../../../assets/scss/mixins';
+
+.home-module {
+    background-color: $color-bg;
+    padding-top: 3%;
+    padding-bottom: 3%;
+
+    .heading {
+        font-size: $font-xxl;
+        text-align: center;
+        line-height: 40px;
+        font-weight: 700;
+        padding: $spacer-3 $spacer-0;
+        color: $color-primary;
+    }
+
+    .base-div {
+        background-color: $color-white;
+        padding: $spacer-2;
+        align-items: center;
+        
+    }
+
+    .form-div {
+        padding: $spacer-2;
+    }
+
+    .image {
+        width: 100%;
+    }
+}
+
+@include tablet{
+    .home-module{
+        .base-div{
+            flex-direction: column-reverse;
+        }
+        .img-div{
+            text-align: center;
+        }
+        .image{
+            width: 40%;
+        }
+    }
+}

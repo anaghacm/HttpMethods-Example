@@ -1,0 +1,63 @@
+@import '../../../assets/scss/variables';
+@import '../../../assets/scss/mixins';
+
+.put-module{
+    background-color: $color-bg;
+
+    .put-form{
+        padding: $spacer-3;
+       
+    }
+    .input-div{
+        padding: $spacer-md;
+    }
+    .form-control{
+        border-radius: 0;
+        font-size: $font-sm;
+
+        &::placeholder{
+            font-size: $font-xsm;
+            font-style: italic;
+            font-weight: 300;
+        }
+        &:focus{
+            box-shadow: none;
+        }
+    }
+    .btn-div{
+        text-align: center;
+    }
+    .btn-method{
+        background-color: $color-contrasting;
+        color: $color-primary;
+        border-radius: 0;
+        font-size: $font-sm;
+        padding: $spacer-md $spacer-2;
+        border: none;
+
+        &:focus{
+            border: none;
+        }
+    }
+    .response-div{
+        font-size: $font-md;
+        text-align: center;
+        padding-top: $spacer-3;
+    }
+    .res-head{
+        font-weight: 600;
+        padding-bottom: $spacer-2;
+    }
+    .res-body{
+        font-weight: 300;
+        font-size: $font-sm;
+    }
+}
+
+@include mobile{
+    .put-module{
+        .response-div{
+            padding-top: $spacer-0;
+        }
+    }
+}
