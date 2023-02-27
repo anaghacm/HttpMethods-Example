@@ -10,7 +10,15 @@ import { PatchMethodComponent } from './homepage/patch-method/patch-method.compo
 import { DeleteMethodComponent } from './homepage/delete-method/delete-method.component';
 import { AccordionComponent } from './homepage/accordion/accordion.component';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { TokenInterceptor } from './interceptors/token.interceptor';
+import { StatusDisplayInterceptor } from './interceptors/status-display.interceptor';
+import { ProgressBarInterceptor } from './interceptors/progress-bar.interceptor';
+import { ApiService } from './services/api.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { LoaderService } from './services/loader.service';
 
 @NgModule({
   declarations: [
@@ -26,9 +34,24 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatProgressSpinnerModule,
+    MatSnackBarModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide:HTTP_INTERCEPTORS, useClass:TokenInterceptor, multi:true
+    },
+    {
+      provide:HTTP_INTERCEPTORS, useClass:StatusDisplayInterceptor, multi:true
+    },
+    {
+      provide:HTTP_INTERCEPTORS, useClass:ProgressBarInterceptor, multi:true
+    },
+    ApiService,
+    LoaderService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

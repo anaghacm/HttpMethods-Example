@@ -1,1 +1,5 @@
 <router-outlet></router-outlet>
+
+<div *ngIf="isLoading| async" class="overlay">
+    <mat-spinner class="spinner"></mat-spinner>
+</div>
